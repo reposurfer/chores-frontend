@@ -1,30 +1,40 @@
 import { useEffect, useState } from 'react';
 import './OverviewComponent.css';
 import { Chore } from '../../models/Chore';
-import Card from '../Card/Card';
+import CardList from '../CardList/CardList';
 
 function OverviewComponent() {
   const [chores, setChores] = useState<Chore[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [error, setError] = useState<Error>();
   useEffect(() => {
     fetch("http://localhost:5013/api/Chores")
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
+      setIsLoaded(true);
       setChores(data);
-    })
-    .catch((err) => {
-      console.error(err.message);
+    },
+    (error) => {
+      setIsLoaded(true);
+      setError(error);
     });
   }, []);
 
-  const listItems = chores.map(chore => <Card title={chore.title} description={chore.description} />);
-
-  return (
-    <div>
-        <div className='title'>Welcome Stef</div>
-        <div className='subtitle'>Your chores</div>
-        <div>{listItems}</div>
-    </div>
-  );
+  if (error){
+    return <div>Error: {error.message}</div>
+  } else if (!isLoaded) {
+    return <div>Loading...</div>
+  } else {
+    
+    return (
+      <div>
+          <div className='title'>Welcome Stef</div>
+          <div className='subtitle'>Your chores</div>
+          <div><CardList chores={chores} /></div>
+      </div>
+    );
+  } 
 }
 
 export default OverviewComponent;
