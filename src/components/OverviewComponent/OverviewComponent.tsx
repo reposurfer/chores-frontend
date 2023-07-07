@@ -31,7 +31,7 @@ function OverviewComponent() {
       <div>
           <div className='title'>Welcome Stef</div>
           <div className='subtitle'>Your chores</div>
-          <div><CardList chores={chores} /></div>
+          <CardList chores={chores} />
       </div>
     );
   } 
