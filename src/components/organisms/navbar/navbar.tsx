@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -17,7 +16,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const pages = ['My hores', 'Households'];
 const settings = ['Profile', 'Logout'];
 
-function NavbarComponent() {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -160,4 +159,4 @@ function NavbarComponent() {
     </AppBar>
   );
 }
-export default NavbarComponent;
+export default Navbar;

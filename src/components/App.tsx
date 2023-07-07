@@ -1,12 +1,12 @@
 import './App.css';
-import NavbarComponent from './Navbar/NavbarComponent';
-import OverviewComponent from './OverviewComponent/OverviewComponent';
+import Navbar from './organisms/navbar/navbar';
+import OverviewPage from './pages/overview-page';
 
 function App() {
   return (
     <div className="App">
-      <NavbarComponent />
-      <OverviewComponent />
+      <Navbar />
+      <OverviewPage  />
     </div>
   );
 }
