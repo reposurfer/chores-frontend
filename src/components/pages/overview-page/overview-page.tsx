@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Chore } from "../../models/Chore";
-import OverviewTemplate from "../templates/overview-template/overview-template";
+import { Chore } from "../../../models/Chore";
+import OverviewTemplate from "../../templates/overview-template/overview-template";
 
 function OverviewPage() {
     const [chores, setChores] = useState<Chore[]>([]);
