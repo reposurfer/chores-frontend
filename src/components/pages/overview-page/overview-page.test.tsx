@@ -6,7 +6,7 @@ test('renders learn react link', () => {
   let error: Error = new Error();
   let chores: Chore[] = [];
   let isLoaded: boolean = false;
-  render(<OverviewTemplate chores = {chores} isLoaded = {isLoaded} error = {error} />);
+  render(<OverviewTemplate chores = {chores} isLoaded = {isLoaded} />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

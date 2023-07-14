@@ -1,6 +1,8 @@
+import HouseholdsTemplate from "../../templates/households-template/households-template";
+
 function HouseholdsPage() {
     return (
-    <h1>Households page</h1>
+    <HouseholdsTemplate />
     );
 }
 

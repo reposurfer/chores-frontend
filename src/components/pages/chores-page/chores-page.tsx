@@ -1,6 +1,8 @@
+import ChoresTemplate from "../../templates/chores-template/chores-template";
+
 function ChoresPage() {
     return (
-    <h1>Chores page</h1>
+    <ChoresTemplate />
     );
 }
 
