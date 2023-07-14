@@ -6,11 +6,13 @@ import HouseholdsPage from './pages/households-page/households-page';
 import OverviewLoader from '../loaders/overviewLoader';
 import NotFoundPage from './pages/notfound-page/notfound-page';
 import ErrorPage from './pages/error-page/error-page';
+import LoginPage from './pages/login-page/login-page';
+import RouteGuard from '../guards/route-guard';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavbarWrapper />,
+    element: <RouteGuard component={<NavbarWrapper />} />,
     children: [
       {
         index: true,
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
         element: <NotFoundPage />,
       },
     ]
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
 
