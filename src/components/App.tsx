@@ -18,21 +18,21 @@ const router = createBrowserRouter([
         index: true,
         element: <OverviewPage />,
         loader: OverviewLoader,
-        errorElement: <ErrorPage />,
+        errorElement: <RouteGuard component={<ErrorPage />} />,
       },
       {
         path: "/my-chores",
-        element: <ChoresPage />,
+        element: <RouteGuard component={<ChoresPage />} />,
 
       },
       {
         path: "/households",
-        element: <HouseholdsPage />,
+        element: <RouteGuard component={<HouseholdsPage />} />,
 
       },
       {
         path: "*",
-        element: <NotFoundPage />,
+        element: <RouteGuard component={<NotFoundPage />} />,
       },
     ]
   },
