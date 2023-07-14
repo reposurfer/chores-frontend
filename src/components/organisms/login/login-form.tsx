@@ -11,14 +11,20 @@ function LoginForm() {
 
     const login = async () => {
         const response = await AuthService.login(username, password);
-        if (response.errors) {
-            setUsernameErrors(response.errors.Username);
-            setPasswordErrors(response.errors.Password);
-        } else {
+        //TODO: handle different errors
+        if(response.token) {
             localStorage.setItem('token', response.token);
             //redirect to overview page
             navigate("/");
+        } else if (response.errors) {
+            setUsernameErrors(response.errors.Username);
+            setPasswordErrors(response.errors.Password);
+        } else {
+            setUsernameErrors(["Something went wrong"]);
+            setPasswordErrors(["Something went wrong"]);
         }
+
+        
     }
 
     return (
