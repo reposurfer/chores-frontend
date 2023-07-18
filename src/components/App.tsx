@@ -8,6 +8,8 @@ import NotFoundPage from './pages/notfound-page/notfound-page';
 import ErrorPage from './pages/error-page/error-page';
 import LoginPage from './pages/login-page/login-page';
 import RouteGuard from '../guards/route-guard';
+import RegisterPage from './pages/register-page/register-page';
+import AuthenticatedRouteGuard from '../guards/authed-route-guard';
 
 const router = createBrowserRouter([
   {
@@ -38,7 +40,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LoginPage />,
+    element: <AuthenticatedRouteGuard component={<LoginPage />} />,
+  },
+  {
+    path: "/register",
+    element: <AuthenticatedRouteGuard component={<RegisterPage />} />,
   },
 ]);
 

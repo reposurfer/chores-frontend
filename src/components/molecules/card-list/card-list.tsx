@@ -1,4 +1,4 @@
-import { Chore } from "../../../models/Chore";
+import { Chore } from "../../../types/chore.type";
 import CardListItem from "../../atoms/card/card";
 import './card-list.css';
 

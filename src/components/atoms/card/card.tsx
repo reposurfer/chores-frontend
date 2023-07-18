@@ -1,5 +1,5 @@
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
-import { Chore } from "../../../models/Chore";
+import { Chore } from "../../../types/chore.type";
 import './card.css';
 
 function CardListItem({ id, title, description }: Chore) {

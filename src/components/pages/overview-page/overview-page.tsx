@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Chore } from "../../../models/Chore";
+import { Chore } from "../../../types/chore.type";
 import OverviewTemplate from "../../templates/overview-template/overview-template";
 import { useLoaderData } from "react-router-dom";
 
@@ -21,7 +21,6 @@ function OverviewPage() {
         // setError(error);
         // });
 
-        console.log('overvieweffect', loaderData);
         setIsLoaded(true);
         setChores(loaderData);
         

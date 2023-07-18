@@ -1,4 +1,4 @@
-import { Chore } from "../models/Chore";
+import { Chore } from "../types/chore.type";
 
 async function OverviewLoader() {
     const res: Response = await fetch("http://localhost:5013/api/Chores");

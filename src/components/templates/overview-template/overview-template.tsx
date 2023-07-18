@@ -1,5 +1,5 @@
 import './overview-template.css';
-import { Chore } from '../../../models/Chore';
+import { Chore } from '../../../types/chore.type';
 import CardList from '../../molecules/card-list/card-list';
 
 function OverviewTemplate({ isLoaded, chores }: {isLoaded: boolean, chores: Chore[]}) {

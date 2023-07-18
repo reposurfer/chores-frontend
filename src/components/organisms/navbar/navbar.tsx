@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link, useNavigate } from 'react-router-dom';
+import AuthService from '../../../util/auth.service';
 
 const pages = ['My-chores', 'Households'];
 const settings = ['Profile', 'Logout'];
@@ -48,7 +49,7 @@ function Navbar() {
 
   const handleSettingClick = (setting: string) => {
     if (setting === 'Logout') {
-      localStorage.removeItem('token');
+      AuthService.logout();
       navigate('/login');
     }
   };

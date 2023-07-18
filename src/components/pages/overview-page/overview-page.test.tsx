@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import OverviewTemplate from '../../templates/overview-template/overview-template';
-import { Chore } from '../../../models/Chore';
+import { Chore } from '../../../types/chore.type';
 
 test('renders learn react link', () => {
   let error: Error = new Error();
