@@ -11,7 +11,25 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('login', () => { 
+    const username = Cypress.env('username');
+    const password = Cypress.env('password');
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:5013/api/Account/login',
+        body: {
+            username,
+            password
+        }
+    }).then((response) => {
+        localStorage.setItem('token', response.body.token);
+        
+    });
+ });
+
+ Cypress.Commands.add('logout', () => { 
+    localStorage.removeItem('token');
+ });
 //
 //
 // -- This is a child command --
@@ -25,13 +43,16 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+export {}
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      login(): Chainable<void>
+      logout(): Chainable<void>
+    //   drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
+    //   dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
+    //   visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
+    }
+  }
+}
