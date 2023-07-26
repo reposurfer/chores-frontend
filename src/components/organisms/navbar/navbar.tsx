@@ -52,6 +52,10 @@ function Navbar() {
       AuthService.logout();
       navigate('/login');
     }
+
+    if (setting === 'Profile') {
+      navigate('/profile');
+    }
   };
 
   return (
@@ -144,13 +148,14 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 }} data-testid="settings-button">
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountCircleIcon sx={{ color: 'white' }} />
               </IconButton>
             </Tooltip>
             <Menu
+              data-testid="settings-menu"
               sx={{ mt: '30px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}

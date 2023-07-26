@@ -45,7 +45,7 @@ function LoginForm() {
                 <label htmlFor="password">Password</label><br />
                 <input value={password} onChange={e => setPassword(e.target.value)} type="password" id="password" /><br />
                 <label><h1 className="error">{passwordErrors}</h1></label><br />
-                <a onClick={login}>Login</a>
+                <button data-cy="login-button" onClick={login}>Login</button>
             </form>
             <br />
             <Link to="/register">Register</Link>
