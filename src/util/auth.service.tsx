@@ -8,16 +8,20 @@ class AuthService {
     static async login(username: string, password: string) {
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
             body: JSON.stringify({ username: username, password: password }),
         };
-
+        console.log(requestOptions);
         const response = await fetch(`${process.env.REACT_APP_API_URL}Account/login`, requestOptions)
             .catch((error: Error) => {
                 const err: ErrorResponse = { status: 500, errors: { "Error": [error.message] } };
+                console.log(err.errors.Error[0]);
+                
                 throw err;
             });
-
+            console.log(response);
+            
+            //TODO: refactor error response codes that will be set in backend
         if (response.ok) {
             const successfulLoginResponse: SuccessfulLoginResponse = await response.json().catch((error: Error) => {
                 const err: ErrorResponse = { status: 500, errors: { "Error": [error.message] } };

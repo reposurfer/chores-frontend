@@ -7,11 +7,11 @@ function OverviewTemplate({ isLoaded, chores }: {isLoaded: boolean, chores: Chor
     return <div>Loading...</div>
   } else {
     return (
-      <div>
+      <>
           <div className='title'>Welcome Stef</div>
           <div className='subtitle'>Your chores</div>
           <CardList chores = {chores} />
-      </div>
+      </>
     );
   } 
 }

@@ -10,6 +10,8 @@ import LoginPage from './pages/login-page/login-page';
 import RouteGuard from '../guards/route-guard';
 import RegisterPage from './pages/register-page/register-page';
 import AuthenticatedRouteGuard from '../guards/authed-route-guard';
+import ProfilePage from './pages/profile-page/profile-page';
+import ProfileLoader from '../loaders/profileLoader';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,11 @@ const router = createBrowserRouter([
 
       },
       {
+        path: "/profile",
+        loader: ProfileLoader,
+        element: <RouteGuard component={<ProfilePage />} />,
+      },
+      {
         path: "*",
         element: <RouteGuard component={<NotFoundPage />} />,
       },
@@ -50,10 +57,10 @@ const router = createBrowserRouter([
 
 function NavbarWrapper() {
   return (
-    <div>
+    <>
       <Navbar />
       <Outlet />
-    </div>
+    </>
   )
 };
 

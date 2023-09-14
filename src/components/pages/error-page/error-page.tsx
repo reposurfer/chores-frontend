@@ -5,10 +5,10 @@ function ErrorPage() {
     const error = useRouteError() as {status: number, statusText: string};
 
     return (
-        <div>
+        <>
         <h1>{error.status}</h1>
         <p>{error.statusText}</p>
-        </div>
+        </>
     );
 }
 
